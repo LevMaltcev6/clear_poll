@@ -1,0 +1,34 @@
+Описание
+
+1) Функционал для администратора системы:
+Запросы poll/admin/ отвечают за методы для администратора системы и требуют обязательной версификации через токен или base auth.
+
+1.1) авторизация
+Осуществляется через jwt access Token по запросу /token/
+
+1.2) добавление/изменение/удаление опросов
+Методом PollAdminViewSet и запросами poll/admin/polls/ + {id}/
+
+1.3) добавление/изменение/удаление вопросов в опросе.
+Методом QusetionAdminViewSet и запросами poll/admin/polls/{id}/questions/ + {id}/
+
+2) Функционал для пользователей системы:
+
+2.1) - получение списка активных опросов
+Запросом user/actual_polls/ и методом UserPollAPIViewSet.get_active_polls
+
+2.2) прохождение опроса
+Получение списка вопросов:  user/question_list/{poll_pk}/ и методом UserPollAPIViewSet.get_questions
+Получение ответов пользователя: user/answer/ и методом UserPollAPIViewSet.get_answer
+
+2.3) получение пройденных пользователем опросов с детализацией по ответам
+Метод UserPollAPIViewSet.get_completed_polls и запрос в /poll/user/done_polls/{user_id}/
+
+
+
+swagger - /schema/swagger-ui/
+
+
+
+
+
